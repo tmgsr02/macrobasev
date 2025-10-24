@@ -52,3 +52,54 @@ include = ["tools", "tools.*"]
 
 [tool.setuptools.package-data]
 "tools.bench" = ["*.conf", "*.txt", "matplotlibrc"]
+requires = ["hatchling>=1.18"]
+build-backend = "hatchling.build"
+
+[project]
+name = "macrobase-py"
+version = "0.1.0"
+description = "Python tooling for the MacroBase ecosystem"
+readme = "README.md"
+authors = [
+  { name = "MacroBase Contributors" }
+]
+license = { file = "LICENSE" }
+requires-python = ">=3.9"
+dependencies = [
+  "pandas>=1.5",
+  "numpy>=1.23",
+  "scikit-learn>=1.2",
+  "scipy>=1.9"
+]
+
+[project.optional-dependencies]
+arrow = ["pyarrow>=9"]
+
+[project.urls]
+Homepage = "https://github.com/user/macrobasev"
+
+[tool.hatch.build]
+include = [
+  "macrobase_py"
+]
+
+[tool.hatch.envs.default]
+dependencies = [
+  "pre-commit>=3.6",
+  "pytest>=7.4"
+]
+
+[tool.hatch.envs.default.scripts]
+lint = "pre-commit run --all-files"
+test = "pytest"
+
+[tool.black]
+target-version = ["py39"]
+line-length = 88
+
+[tool.isort]
+profile = "black"
+
+[tool.flake8]
+max-line-length = 88
+extend-ignore = ["E203"]

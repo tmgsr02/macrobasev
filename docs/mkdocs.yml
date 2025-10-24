@@ -1,14 +1,49 @@
 site_name: MacroBase Documentation
+site_description: "In-depth guides, tutorials, and API references for MacroBase."
 docs_dir: source
+site_url: https://stanford-futuredata.github.io/macrobase
+repo_name: stanford-futuredata/macrobase
+repo_url: https://github.com/stanford-futuredata/macrobase
 
-pages:
-  - Home: 'index.md'
-  - MacroBase SQL:
-    - 'Docs': 'sql/docs.md'
-    - 'Setup': 'sql/setup.md'
-    - 'Tutorial': 'sql/tutorial.md'
-  - MacroBase GUI:
-    - 'Tutorial': 'gui/tutorial.md'
+nav:
+  - Home: index.md
+  - Architecture:
+      - Overview: architecture.md
+      - Pipelines: pipelines.md
+  - Tutorials:
+      - CSV Ingestion Workflow: tutorials/csv-ingestion.md
+      - Cubed Data Analysis: tutorials/cubed-analysis.md
+      - Explanation Interpretation: tutorials/explanation-interpretation.md
+  - Configuration:
+      - Configuration Overview: configuration.md
+      - Parameter Reference: user-guide/parameters.md
+  - API Reference:
+      - Command Line Toolkit: api/command-line.md
+  - SQL Interface:
+      - Overview: sql/docs.md
+      - Setup: sql/setup.md
+      - Tutorial: sql/tutorial.md
+  - GUI:
+      - Tutorial: gui/tutorial.md
 
 theme:
-  name: 'readthedocs'
+  name: readthedocs
+
+plugins:
+  - search
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          setup_commands:
+            - import sys
+            - from pathlib import Path
+            - sys.path.append(str(Path(__file__).resolve().parent.parent))
+
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - tables
+  - def_list
+  - attr_list

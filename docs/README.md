@@ -1,25 +1,44 @@
-Welcome to the MacroBase documentation!
+# MacroBase Documentation Toolkit
 
-This readme will walk you through navigating and building the MacroBase documentation, which is included here with the MacroBase source code.
+This repository uses [MkDocs](https://www.mkdocs.org/) to build the project
+manual. The configuration file lives at `docs/mkdocs.yml` and the source
+material is stored in `docs/source/`.
 
 ## Prerequisites
 
-The Spark documentation build uses a number of tools to build HTML docs.
+Install the documentation dependencies into your Python environment:
 
-```sh
-$ sudo pip install mkdocs mkdocs-material
+```bash
+pip install mkdocs mkdocstrings[python]
 ```
 
-## Building
+## Local development
 
-To build the docs in the `site` directory:
+Serve the documentation locally while you iterate:
 
-```sh
-$ mkdocs build
+```bash
+mkdocs serve --config-file docs/mkdocs.yml
 ```
 
-To serve the docs on localhost:
+MkDocs will watch the files under `docs/source/` and rebuild the site on every
+save. To produce a static site, run:
 
-```sh
-$ mkdocs serve
+```bash
+mkdocs build --config-file docs/mkdocs.yml --site-dir docs/site
 ```
+
+## Publishing
+
+Documentation is published automatically to GitHub Pages via the `Docs` workflow
+in `.github/workflows/docs.yml`. The workflow runs on pushes to the default
+branch, builds the site, and deploys the rendered HTML to the `gh-pages`
+branch.
+
+You can trigger the same deployment manually with:
+
+```bash
+mkdocs gh-deploy --config-file docs/mkdocs.yml
+```
+
+The generated site will be available at
+`https://stanford-futuredata.github.io/macrobase/` once the workflow completes.
