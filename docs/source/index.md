@@ -1,44 +1,22 @@
-# MacroBase
+# MacroBase Documentation
 
+MacroBase is an analytic monitoring engine designed to prioritize attention in
+large-scale datasets and data streams. It focuses on detecting unusual behavior
+and explaining which attribute combinations best describe each anomaly cohort.
 
-## What is MacroBase?
+Use the navigation sidebar to explore:
 
-MacroBase is a new *analytic monitoring* engine designed to prioritize human
-attention in large-scale datasets and data streams. Unlike a traditional
-analytics engine, MacroBase is specialized for one task: finding and explaining
-unusual or interesting trends in data.
+- The [architecture overview](architecture.md) for a tour of the ingestion,
+  classification, and summarization layers that power every pipeline.
+- Detailed [pipeline guides](pipelines.md) that explain when to use the batch or
+  cube execution paths and how to tune them for your workloads.
+- A [configuration reference](configuration.md) and full [parameter catalogue](user-guide/parameters.md)
+  covering every YAML key supported by the engine.
+- Tutorials that mirror common workflows, including [CSV ingestion](tutorials/csv-ingestion.md),
+  [cubed data analysis](tutorials/cubed-analysis.md), and [explanation interpretation](tutorials/explanation-interpretation.md).
+- Automatically generated [API documentation](api/command-line.md) for the Python
+  wrappers that script MacroBase's command line tools.
 
-Under the hood, MacroBase is architected for rapid adaptation to new
-application domains. MacroBase has been successfully used for analyses in
-domains including datacenter and mobile application monitoring, industrial
-manufacturing, and video and satellite image analysis.
-
-MacroBase supports streaming operation, meaning that once users identify an
-important behavior, they can track it continuously over time.
-
-## How can I run MacroBase queries?
-
-The simplest way to use MacroBase is through our [SQL interface](sql/docs).
-Using our extended version of SQL, users can segment their datasets by key
-performance metrics (e.g., power drain, latency) and query for explanations of
-anomalous or abnormal behavior across important metadata attributes (e.g.,
-hostname, device ID). For example, MacroBase may report that queries running on
-host #5 are 10x more likely to experience high latency than the rest of the
-cluster, or that devices of type "X103" are 30x more likely to experience high
-power drain.
-
-MacroBase also has a UI that offers simple point-and-click functionality
-for specifying user queries. Users can highlight the key performance metrics
-they care about, select which metadata attributes to explore, and let MacroBase
-find explanations of the anomalous or interesting trends in the data. For more,
-check out our [UI Tutorial](gui/tutorial).
-
-MacroBase is designed for extensibility, and there are a number of more
-advanced interfaces you can use to program the system and execute more complex
-query functionality.
-
-## More information
-
-Feel free to open GitHub issues or email us at macrobase@cs.stanford.edu.  The
-development branches contain most of the action.  A detailed technical overview
-of the project is available [on arXiv](http://arxiv.org/pdf/1603.00567.pdf).
+If you're experimenting with the SQL or GUI front ends, revisit the existing
+walkthroughs to learn how to connect your databases and explore explanations
+interactively.
