@@ -10,3 +10,6 @@ __all__ = [
     "check_functional_dependency",
     "dependency_summary",
 ]
+"""Module placeholder for macrobase_py.utils."""
+
+__all__: list[str] = []

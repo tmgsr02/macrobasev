@@ -30,3 +30,6 @@ __all__ = [
     "support",
     "update_metric_summary",
 ]
+"""Module placeholder for macrobase_py.metrics."""
+
+__all__: list[str] = []
