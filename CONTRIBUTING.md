@@ -5,3 +5,11 @@ license the work to the project under the project's open source license. Whether
 state this explicitly, by submitting any copyrighted material via pull request, email, or 
 other means you agree to license the material under the project's open source license and 
 warrant that you have the legal authority to do so.
+
+### Python development guidelines
+
+* Install dependencies via `hatch env create` and activate with `hatch shell`.
+* Run `pre-commit install` before submitting patches to ensure formatting and
+  linting are applied consistently.
+* Add unit tests for new features and execute `pytest` locally before opening a
+  pull request.
