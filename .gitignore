@@ -1,4 +1,6 @@
 data/
+!macrobase_py/data/
+!macrobase_py/data/**
 conf/
 *.class
 .classpath
