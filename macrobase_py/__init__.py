@@ -1,3 +1,9 @@
+"""Utilities and classifiers for MacroBase Python components."""
+
+from . import classifiers
+
+__all__ = ["classifiers"]
+
 """Python tooling for MacroBase summarization algorithms."""
 
 from .explainers import (
