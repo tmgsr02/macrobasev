@@ -32,6 +32,11 @@ sql_cache/*
 # Compiled python file
 *.pyc
 
+# Python packaging artifacts
+build/
+dist/
+*.egg-info/
+
 # Workload directory
 bench/workflows/*
 bench/conf/custom/
